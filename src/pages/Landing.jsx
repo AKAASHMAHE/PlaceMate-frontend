@@ -1,6 +1,10 @@
 import React from "react";
 
 function Landing() {
+  // ✅ Automatically detect backend URL
+  const API_BASE =
+    process.env.REACT_APP_API_BASE || "http://localhost:5000";
+
   return (
     <div className="bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white font-inter">
       {/* Navbar */}
@@ -23,7 +27,7 @@ function Landing() {
             Recruiters
           </a>
           <a
-            href="http://localhost:5000/auth/google"
+            href={`${API_BASE}/auth/google`}
             className="hover:text-indigo-400 transition"
           >
             Join
@@ -31,7 +35,7 @@ function Landing() {
         </nav>
 
         <a
-          href="http://localhost:5000/auth/google"
+          href={`${API_BASE}/auth/google`}
           className="bg-indigo-500 hover:bg-indigo-600 px-5 py-2 rounded-lg text-sm md:text-base font-semibold transition-transform hover:scale-105 shadow-md"
         >
           Get Started
@@ -53,7 +57,7 @@ function Landing() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="http://localhost:5000/auth/google"
+              href={`${API_BASE}/auth/google`}
               className="bg-indigo-500 hover:bg-indigo-600 px-8 py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-indigo-500/40 transition-transform hover:scale-105"
             >
               Join Now
@@ -219,7 +223,7 @@ function Landing() {
           and connecting with the right mentors for your dream job.
         </p>
         <a
-          href="http://localhost:5000/auth/google"
+          href={`${API_BASE}/auth/google`}
           className="bg-black text-white px-10 py-4 rounded-xl text-xl font-semibold hover:bg-gray-900 transition-transform transform hover:scale-105"
         >
           Sign Up Now
