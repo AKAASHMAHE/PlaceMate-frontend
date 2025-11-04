@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlaceMate — User Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #111827, #1f2937, #000);
+      color: #fff;
+    }
+
+    .flex { display: flex; }
+    .min-h-screen { min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border-right: 1px solid #1f2937;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #818cf8;
+      margin-bottom: 40px;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+    .nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: #818cf8; }
+    .logout {
+      background: #6366f1;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .logout:hover { background: #4f46e5; }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 24px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .header h2 { font-size: 1.25rem; font-weight: 600; }
+    .header span { color: #818cf8; }
+    .header input {
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: none;
+      background: #1f2937;
+      color: #d1d5db;
+      outline: none;
+    }
+    .header .avatar {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #374151;
+      border: 2px solid #818cf8;
+      color: #9ca3af;
+      margin-left: 12px;
+    }
+
+    /* Card */
+    .card {
+      background: #1f2937;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      color: #818cf8;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 12px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #4f46e5; }
+
+    /* Grid layouts */
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .mt-8 { margin-top: 32px; }
+
+    /* Lists */
+    .text-sm { font-size: 0.875rem; color: #9ca3af; }
+    .list { color: #d1d5db; }
+
+    /* Placement Qs */
+    .qa-item {
+      background: rgba(55,65,81,0.6);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .qa-item span { font-weight: bold; }
+    .qa-item .q { color: #818cf8; }
+    .qa-item .tip { color: #34d399; }
+
+    /* Iframe */
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      border: 2px solid #818cf8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1>PlaceMate</h1>
+      <nav class="nav">
+        <a href="#"><span>🏠</span> Dashboard</a>
+        <a href="#"><span>👤</span> Profile</a>
+        <a href="#"><span>💬</span> Forum</a>
+        <a href="#"><span>📨</span> Messaging</a>
+        <a href="#"><span>📊</span> Statistics</a>
+        <a href="#"><span>❓</span> Placement Qs</a>
+        <a href="#"><span>🎥</span> Video Calls</a>
+        <a href="#"><span>⚙</span> Settings</a>
+      </nav>
+      <a href="#" class="logout">Logout</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Header -->
+      <header class="header">
+        <h2>Welcome Back, <span>Former User</span></h2>
+        <div class="flex items-center">
+          <input type="text" placeholder="Search..."/>
+          <div class="avatar">👤</div>
+        </div>
+      </header>
+
+      <!-- Dashboard Widgets -->
+      <section class="grid grid-3">
+        <div class="card">
+          <h3>Your Profile</h3>
+          <div class="flex items-center" style="gap:16px;">
+            <div class="avatar" style="width:64px;height:64px;font-size:1.5rem;">👤</div>
+            <div>
+              <p class="font-bold">Former User</p>
+              <p class="text-sm">No Branch | No Year | No Domain</p>
+            </div>
+          </div>
+          <a href="#" class="btn">Edit Profile</a>
+        </div>
+
+        <div class="card">
+          <h3>Forum Highlights</h3>
+          <ul class="list">
+            <li>💡 How to prepare for Deloitte interviews?</li>
+            <li>📘 Best resources for DSA in Java?</li>
+            <li>🎯 Tips for Group Discussions?</li>
+          </ul>
+          <a href="#" class="btn">View Forum</a>
+        </div>
+
+        <div class="card">
+          <h3>Messaging</h3>
+          <p>New Messages: <strong>3</strong></p>
+          <a href="#" class="btn">Open Chat</a>
+        </div>
+      </section>
+
+      <!-- Statistics -->
+      <section class="card mt-8">
+        <h3>Placement Statistics</h3>
+        <ul class="list">
+          <li>✅ Average Package (CSE): ₹8.5 LPA</li>
+          <li>🏢 Top Recruiter: Amazon (30 hires)</li>
+          <li>🔥 Highest Package: ₹42 LPA</li>
+        </ul>
+        <a href="#" class="btn">View Detailed Stats</a>
+      </section>
+
+      <!-- Placement Questions -->
+      <section class="card mt-8">
+        <h3>Placement Questions & Tips</h3>
+        <div class="qa-item">
+          <span class="q">Q:</span> What are the most common HR questions at Infosys?
+          <p><span class="tip">Tip:</span> Focus on strengths/weaknesses and project explanations.</p>
+        </div>
+        <div class="qa-item">
+          <span class="q">Q:</span> How to crack the coding round at Amazon?
+          <p><span class="tip">Tip:</span> Practice DSA on LeetCode (Medium-level).</p>
+        </div>
+        <div class="qa-item">
+          <span class="q">Q:</span> What are good resources for aptitude tests?
+          <p><span class="tip">Tip:</span> R.S. Aggarwal + IndiaBix mock tests.</p>
+        </div>
+        <a href="#" class="btn">Add Question</a>
+      </section>
+
+      <!-- Video Call -->
+      <section class="card mt-8">
+        <h3>Mock Interview Room</h3>
+        <iframe src="https://meet.jit.si/placemate-demo-room"></iframe>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
