@@ -3,7 +3,7 @@ import React from "react";
 function Landing() {
   // ✅ Automatically detect backend URL
   const API_BASE =
-    process.env.REACT_APP_API_BASE || "http://localhost:5000";
+    process.env.REACT_APP_API_BASE;
 
   return (
     <div className="bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white font-inter">
